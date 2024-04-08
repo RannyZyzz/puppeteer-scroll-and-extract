@@ -1,8 +1,9 @@
 import puppeteer from 'puppeteer';
-
+import fs from 'fs';
+import { createObjectCsvWriter } from 'csv-writer';
 
 async function scrollAndExtract() {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
 
     await page.setViewport({ width: 1080, height: 1024 });
@@ -20,11 +21,45 @@ async function scrollAndExtract() {
 
     await page.focus('div.jgIq1')
 
-    await page.evaluate(() => {
-        const modal = document.querySelector('div.jgIq1');
-        modal.scrollTo(0, modal.scrollHeight); // Rolar para o final do modal
-        // Você também pode ajustar o valor de scrollTo conforme necessário
+
+    await page.waitForSelector('#yDmH0d > div.VfPpkd-Sx9Kwc.cC1eCc.UDxLd.PzCPDd.HQdjr.VfPpkd-Sx9Kwc-OWXEXe-FNFY6c > div.VfPpkd-wzTsW > div > div > div > div > div.fysCi');
+
+    async function scrollForDuration(page, duration) {
+        const endTime = Date.now() + duration;
+        while (Date.now() < endTime) {
+            await page.evaluate(() => {
+                const modal = document.querySelector('#yDmH0d > div.VfPpkd-Sx9Kwc.cC1eCc.UDxLd.PzCPDd.HQdjr.VfPpkd-Sx9Kwc-OWXEXe-FNFY6c > div.VfPpkd-wzTsW > div > div > div > div > div.fysCi');
+                modal.scrollTo(0, modal.scrollHeight);
+            });
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Aguarda 1 segundo
+        }
+    }
+    await scrollForDuration(page, 10000); // Scroll por 10 segundos
+
+    const data = await page.$$eval('span.bp9Aid, .h3YV2d', divs => {
+        return divs.map(div => div.innerText.trim());
     });
+
+
+    await browser.close();
+
+    const csvWriter = createObjectCsvWriter({
+        path: 'dados.csv',
+        header: [
+            { id: 'data', title: 'Data' },
+            { id: 'informacao', title: 'Informação' }
+        ]
+    });
+
+    const records = data.map(info => {
+        console.log(info)
+        const [data, informacao] = info.split('\n')
+        return { data, informacao };
+    });
+    csvWriter.writeRecords(records)
+        .then(() => console.log('Dados salvos com sucesso em dados.csv'))
+        .catch(error => console.error('Erro ao salvar os dados:', error));
+
 
     // let elements = []; 
 
