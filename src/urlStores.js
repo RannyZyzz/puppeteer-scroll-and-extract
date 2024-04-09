@@ -20,7 +20,10 @@ const urlStores =
         ["oeste-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.oestesaude&hl=pt_BR&gl=US"],
         ["plano-de-saude-hospitalar", "https://play.google.com/store/apps/details?id=com.solushospitalar&hl=pt_BR&gl=US"],
         ["circulo-saude", "https://play.google.com/store/apps/details?id=br.com.circulosaude&hl=pt_BR&gl=US"],
-        ["affego-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.affego&hl=pt_BR&gl=US"]
+        ["affego-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.affego&hl=pt_BR&gl=US"],
+        ["cassi", "https://play.google.com/store/apps/details?id=com.saude.cassi&hl=pt_BR&gl=US"],
+        ["unimed-nordeste", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.unimed.ners&hl=pt_BR&gl=US"],
+        ["unimed-sergipe", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.unimed.sergipe&hl=pt_BR&gl=US"]
     ]
 
 export { urlStores }
