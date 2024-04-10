@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
 import { urlStores } from './urlStores.js';
+import { error } from 'console';
 
 // process.setMaxListeners(15);
 const mkdirAsync = promisify(fs.mkdir);
@@ -57,7 +58,6 @@ async function scrollAndExtract(urlLoja, folderCliente) {
             }
         }
 
-
         await scrollForDuration(page, 10000); // Scroll por 10 segundos
         const data = await page.$$eval('span.bp9Aid, .h3YV2d, div.iXRFPc', divs => {
             return divs.map(div => {
@@ -75,18 +75,19 @@ async function scrollAndExtract(urlLoja, folderCliente) {
 
         // Organizando os dados em pares de "data" e "comentário"
         const pairs = [];
-        let currentData;
-        let currentComentario;
+        let currentAvaliacao = null
+        let currentData = null
+
         data.forEach(item => {
-            if (item.type === 'data') {
+            if (item.type === 'ariaLabel') {
+                currentAvaliacao = item.value;
+            } else if (item.type === 'data') {
                 currentData = item.value;
             } else if (item.type === 'comentario') {
-                currentComentario = item.value;
-            } else if (item.type === 'ariaLabel') {
                 const pair = {
                     data: currentData,
-                    comentario: currentComentario,
-                    ariaLabel: item.value
+                    comentario: item.value,
+                    ariaLabel: currentAvaliacao
                 };
                 pairs.push(pair);
             }
@@ -112,6 +113,10 @@ async function processURLs(urls) {
     for (const url of urls) {
         const urlLoja = url[1];
         const folderCliente = url[0];
+
+        if (folderCliente == 'finish') {
+            throw new error
+        }
 
         try {
             await scrollAndExtract(urlLoja, folderCliente);

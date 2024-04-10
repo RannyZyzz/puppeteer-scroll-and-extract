@@ -1,5 +1,6 @@
 const urlStores =
     [
+        ["saude-pas", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.saudepas&hl=pt_BR&gl=US"],
         ["unimed-vale-do-sinos", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.unimed.valedosinos&hl=pt_BR&gl=US"],
         ["cemig-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.cemig&hl=pt_BR&gl=US"],
         ["yousaude", "https://play.google.com/store/apps/details?id=com.facilinformatica.facgeoyousaude&hl=pt_BR&gl=US"],
@@ -11,7 +12,6 @@ const urlStores =
         ["ssi-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.ssisaude&hl=en_US"],
         ["ameplan-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.ameplansaude&hl=pt_BR&gl=US"],
         ["quali-administrador", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.qualisaude"],
-        ["saude-pas", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.saudepas&hl=pt_BR&gl=US"],
         ["afrafep-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.afrafep&hl=pt_BR&gl=US"],
         ["fisco-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.fiscosaude&hl=pt_PT"],
         ["affeam-saude", "https://play.google.com/store/apps/details?id=com.saude.affeam&hl=pt_BR&gl=US"],
@@ -23,7 +23,22 @@ const urlStores =
         ["affego-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.affego&hl=pt_BR&gl=US"],
         ["cassi", "https://play.google.com/store/apps/details?id=com.saude.cassi&hl=pt_BR&gl=US"],
         ["unimed-nordeste", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.unimed.ners&hl=pt_BR&gl=US"],
-        ["unimed-sergipe", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.unimed.sergipe&hl=pt_BR&gl=US"]
+        ["unimed-sergipe", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.unimed.sergipe&hl=pt_BR&gl=US"],
+        ["asfeb-saude", "https://play.google.com/store/apps/details?id=com.saude.asfeb&hl=pt_BR&gl=US"],
+        ["funssest", "https://play.google.com/store/apps/details?id=com.saude.funssest&hl=pt_BR&gl=US"],
+        ["parana-clinicas", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.paranaclinicas&hl=pt_BR&gl=US"],
+        ["cemeru", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.cemeru&hl=pt_BR&gl=US"],
+        ["casu", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.casu&hl=pt_BR&gl=US"],
+        ["quali-administrador", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.qualisaude"],
+        ["capitalprev", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.faeces&hl=pt_PT&gl=US"],
+        ["mutua-dos-magistrados", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.mutua&hl=pt_BR&gl=US"],
+        ["santa-cas-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.santacasamaringa"],
+        ["assefaz", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.assefaz&hl=pt_BR&gl=US"],
+        ["tempomed-plan-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.tempomed&hl=pt_BR&gl=US"],
+        ["tacchimed", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.tacchimed&hl=pt_BR&gl=US"],
+        ["fundacao-liberdas", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.fundacaolibertas&hl=pt_PT&gl=US"],
+        ["amafresp", "https://play.google.com/store/apps/details?id=com.saude.amafresp&hl=pt_BR&gl=US"],
+        ["finish", "finish"]
     ]
 
 export { urlStores }
