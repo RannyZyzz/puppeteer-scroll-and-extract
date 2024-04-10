@@ -1,7 +1,7 @@
 const urlStores =
     [
-        ["saude-pas", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.saudepas&hl=pt_BR&gl=US"],
         ["unimed-vale-do-sinos", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.unimed.valedosinos&hl=pt_BR&gl=US"],
+        ["saude-pas", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.saudepas&hl=pt_BR&gl=US"],
         ["cemig-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.cemig&hl=pt_BR&gl=US"],
         ["yousaude", "https://play.google.com/store/apps/details?id=com.facilinformatica.facgeoyousaude&hl=pt_BR&gl=US"],
         ["aurora-saude", "https://play.google.com/store/apps/details?id=br.com.clinica.aurora.app&hl=pt_BR&gl=US"],
@@ -11,7 +11,7 @@ const urlStores =
         ["caring-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.caringsaude"],
         ["ssi-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.ssisaude&hl=en_US"],
         ["ameplan-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.ameplansaude&hl=pt_BR&gl=US"],
-        ["quali-administrador", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.qualisaude"],
+        ["quali-administradora", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.qualisaude"],
         ["afrafep-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.afrafep&hl=pt_BR&gl=US"],
         ["fisco-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.fiscosaude&hl=pt_PT"],
         ["affeam-saude", "https://play.google.com/store/apps/details?id=com.saude.affeam&hl=pt_BR&gl=US"],
@@ -32,7 +32,7 @@ const urlStores =
         ["quali-administrador", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.qualisaude"],
         ["capitalprev", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.faeces&hl=pt_PT&gl=US"],
         ["mutua-dos-magistrados", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.mutua&hl=pt_BR&gl=US"],
-        ["santa-cas-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.santacasamaringa"],
+        ["santa-casa-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.santacasamaringa"],
         ["assefaz", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.assefaz&hl=pt_BR&gl=US"],
         ["tempomed-plan-saude", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.tempomed&hl=pt_BR&gl=US"],
         ["tacchimed", "https://play.google.com/store/apps/details?id=br.com.mobilesaude.tacchimed&hl=pt_BR&gl=US"],

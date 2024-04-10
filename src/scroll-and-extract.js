@@ -9,22 +9,9 @@ import { error } from 'console';
 const mkdirAsync = promisify(fs.mkdir);
 const rmdirAsync = promisify(fs.rmdir);
 
-async function scrollAndExtract(urlLoja, folderCliente) {
-
-    const __dirname = path.dirname(new URL(import.meta.url).pathname);
-    const resenhasFolderPath = path.join(__dirname, 'resenhas');
-
-    try {
-        await mkdirAsync(resenhasFolderPath);
-    } catch (err) {
-        if (err.code !== 'EEXIST') {
-            throw err;
-        }
-    }
-
-    const folderName = folderCliente;
-    const folderPath = path.join(resenhasFolderPath, folderName);
-
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const resenhasFolderPath = path.join(__dirname, 'resenhas');
+async function createFolder(folderPath) {
     try {
         await mkdirAsync(folderPath);
     } catch (err) {
@@ -32,6 +19,13 @@ async function scrollAndExtract(urlLoja, folderCliente) {
             throw err;
         }
     }
+}
+
+async function scrollAndExtract(urlLoja, folderCliente) {
+
+    const folderPath = path.join(resenhasFolderPath, folderCliente);
+    await createFolder(resenhasFolderPath);
+    await createFolder(folderPath);
 
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
@@ -47,6 +41,7 @@ async function scrollAndExtract(urlLoja, folderCliente) {
         await page.click('#yDmH0d > c-wiz.SSPGKf.Czez9d > div > div > div:nth-child(1) > div > div.wkMJlb.YWi3ub > div > div.qZmL0 > div:nth-child(1) > c-wiz:nth-child(5) > section > div > div.Jwxk6d > div:nth-child(5) > div > div > button > span');
         await page.focus('div.jgIq1')
         await page.waitForSelector('#yDmH0d > div.VfPpkd-Sx9Kwc.cC1eCc.UDxLd.PzCPDd.HQdjr.VfPpkd-Sx9Kwc-OWXEXe-FNFY6c > div.VfPpkd-wzTsW > div > div > div > div > div.fysCi');
+
         async function scrollForDuration(page, duration) {
             const endTime = Date.now() + duration;
             while (Date.now() < endTime) {
@@ -59,18 +54,20 @@ async function scrollAndExtract(urlLoja, folderCliente) {
         }
 
         await scrollForDuration(page, 10000); // Scroll por 10 segundos
-        const data = await page.$$eval('span.bp9Aid, .h3YV2d, div.iXRFPc', divs => {
+
+        const data = await page.$$eval('div.RHo1pe span.bp9Aid, div.RHo1pe .h3YV2d, div.RHo1pe div.iXRFPc', divs => {
             return divs.map(div => {
                 if (div.classList.contains('bp9Aid')) {
                     return { type: 'data', value: div.innerText.trim() };
                 } else if (div.classList.contains('h3YV2d')) {
-                    console.log(div.innerText.trim())
                     return { type: 'comentario', value: div.innerText.trim() };
                 } else if (div.classList.contains('iXRFPc')) {
                     return { type: 'ariaLabel', value: div.getAttribute('aria-label').trim() };
                 }
             }).filter(item => item !== undefined);
         });
+
+
         await browser.close();
 
         // Organizando os dados em pares de "data" e "comentário"
