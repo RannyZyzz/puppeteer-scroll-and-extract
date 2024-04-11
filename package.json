@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "crawler": "node src/scroll-and-extract.js",
-    "screenshot": "node src/getScreenshot.js"
+    "crawler": "node src/scroll-and-extract/index.js",
+    "screenshot": "node src/get-screenshot/index.js"
   },
   "keywords": [],
   "author": "",

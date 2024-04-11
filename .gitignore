@@ -1,5 +1,5 @@
 node_modules
-src/resenhas
-src/screenshots
+src/scroll-and-extract/resenhas
+src/get-screenshot/screenshots
 resultado.txt
 package-lock.json
